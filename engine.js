@@ -1,7 +1,7 @@
 /** Glam TikTok Agent Farm: deterministic, local-only prompt and safety helpers.
  * Nothing in this module calls an AI, publishes, sends a message, or changes a file.
  */
-const SALES_LINK = 'https://payhip.com/b/54LoK';
+const SALES_LINK = 'https://glamhustlehub.com/products/the-glam-vault';
 const AGENT_LINK = 'https://chatgpt.com/c/6adc4bbe-7a54-83ea-81ad-e78a2a13e7f4';
 const DM_TEMPLATE = `Hey girl, I see you! Here's the Glam Vault you asked for: ${SALES_LINK}\nTake a look, and let me know if you have a question.`;
 const COMMENT_TEMPLATE = 'Hey girl, I see you! If you want the Glam Vault details, send me VAULT in a DM.';
@@ -110,7 +110,7 @@ function safePublicUrl(value) {
 }
 function looksLikePromotion(item) {
   const recordedVaultTemplate = /^vault(?::|%3a)/i.test(valueText(item.dedupeKey));
-  return [item.draft, ...(item.previousVersions || []).map(version => version.draft)].some(text => hasText(text) && (recordedVaultTemplate || /\bvault\b|payhip\.com\/b\/54LoK/i.test(text)));
+  return [item.draft, ...(item.previousVersions || []).map(version => version.draft)].some(text => hasText(text) && (recordedVaultTemplate || /\bvault\b|payhip\.com\/b\/54LoK|glamhustlehub\.com\/products\/the-glam-vault/i.test(text)));
 }
 
 /** Returns a draft or a review reason. Caller persists suppressed senders; this is deliberately pure. */
